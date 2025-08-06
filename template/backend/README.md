@@ -14,6 +14,26 @@ dotnet build
 ```bash
 docker-compose up
 ```
+4- create the products and assign their promotions according to the business rules:
+```json
+{
+  "identification": "PROMO001",
+  "percent": 10,
+  "maxUnit": 10,
+  "minUnit": 4,
+  "expirationDate": "2025-09-06T02:29:04.802Z"
+}
+```
+and then
+```json
+{
+  "identification": "PROMO002",
+  "percent": 20,
+  "maxUnit": 20,
+  "minUnit": 10,
+  "expirationDate": "2025-09-06T02:29:04.802Z"
+}
+```
 
 ## Reach me for any questions
 - [Gerson](https://www.linkedin.com/in/gersonrp/)
