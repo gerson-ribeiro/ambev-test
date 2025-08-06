@@ -1,0 +1,21 @@
+﻿using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Domain.Entities.Results;
+using AutoMapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ambev.DeveloperEvaluation.Application.Sales.ListSale;
+
+public class ListSaleProfile : Profile
+{
+    public ListSaleProfile()
+    {
+        CreateMap<Sale, ListSalesItemResult>();
+        CreateMap<SaleItem, ListSaleItemItemsResult>();
+        CreateMap<Product, ListSaleItemItemsProductResult>();
+        CreateMap<Category, ListSaleItemItemsProductCategoryResult>();
+    }
+}

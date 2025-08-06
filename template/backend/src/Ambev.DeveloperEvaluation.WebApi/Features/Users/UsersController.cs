@@ -18,18 +18,13 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Users;
 [Route("api/[controller]")]
 public class UsersController : BaseController
 {
-    private readonly IMediator _mediator;
-    private readonly IMapper _mapper;
-
     /// <summary>
     /// Initializes a new instance of UsersController
     /// </summary>
     /// <param name="mediator">The mediator instance</param>
     /// <param name="mapper">The AutoMapper instance</param>
-    public UsersController(IMediator mediator, IMapper mapper)
+    public UsersController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
     {
-        _mediator = mediator;
-        _mapper = mapper;
     }
 
     /// <summary>
@@ -79,8 +74,8 @@ public class UsersController : BaseController
         if (!validationResult.IsValid)
             return BadRequest(validationResult.Errors);
 
-        var command = _mapper.Map<GetUserCommand>(request.Id);
-        var response = await _mediator.Send(command, cancellationToken);
+        var query = _mapper.Map<GetUserQuery>(request.Id);
+        var response = await _mediator.Send(query, cancellationToken);
 
         return Ok(new ApiResponseWithData<GetUserResponse>
         {
